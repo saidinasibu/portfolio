@@ -6,11 +6,9 @@
   --extra-light: #f3f4f6;
   --white: #ffffff;
   --gradient-1: linear-gradient(to bottom right, #62393c, #181e41);
-  --gradient-2: linear-gradient(
-    to bottom,
-    var(--primary-color),
-    var(--secondary-color)
-  );
+  --gradient-2: linear-gradient(to bottom,
+      var(--primary-color),
+      var(--secondary-color));
   --max-width: 1200px;
 }
 
@@ -278,6 +276,7 @@ nav {
   overflow: hidden;
   border-radius: 1rem;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .portfolio__card img {
@@ -286,6 +285,11 @@ nav {
 
 .portfolio__card:hover img {
   transform: scale(1.1);
+}
+
+.portfolio__card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .portfolio__banner {
@@ -322,6 +326,13 @@ nav {
   margin-bottom: 1rem;
 }
 
+.contact__email {
+  margin: 1rem 0;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--secondary-color);
+}
+
 .contact__socials {
   margin-top: 2rem;
   display: flex;
@@ -351,6 +362,110 @@ nav {
   font-size: 0.9rem;
   color: var(--extra-light);
   text-align: center;
+}
+
+/* Portfolio Tabs */
+.portfolio__tabs {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem 0 3rem;
+}
+
+.tab__btn {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--white);
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tab__btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.tab__btn.active {
+  background-image: var(--gradient-2);
+}
+
+.portfolio__tab-content {
+  display: none;
+}
+
+.portfolio__tab-content.active {
+  display: block;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.portfolio__category__title {
+  margin: 4rem 0 2rem;
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-align: center;
+  color: var(--secondary-color);
+  position: relative;
+}
+
+.portfolio__category__title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 3px;
+  background: var(--gradient-2);
+  border-radius: 3px;
+}
+
+.portfolio__links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  padding: 0.5rem;
+}
+
+.portfolio__links a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1.2rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 30px;
+  color: var(--white);
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.portfolio__links a:hover {
+  background: var(--gradient-2);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.portfolio__links a i {
+  font-size: 1.2rem;
+}
+
+.btn i {
+  margin-right: 0.5rem;
 }
 
 @media (width > 576px) {
@@ -465,94 +580,15 @@ nav {
   }
 }
 
-.header__titles {
-  text-align: left;
-  margin-bottom: 3rem;
-  max-width: 600px;
-}
+@media (max-width: 768px) {
+  .portfolio__tabs {
+    flex-direction: column;
+    align-items: center;
+  }
 
-.main-title {
-  font-size: 7rem;
-  font-weight: 1000;
-  color: #ef6d16;
-  margin-bottom: 1rem;
-  line-height: 1;
-}
-
-.sub-title {
-  font-size: 1.25rem;
-  font-weight: 500;
-  color: #e48622;
-  line-height: 4;
-}
-/* Add to existing CSS */
-.portfolio__category__title {
-  margin: 4rem 0 2rem;
-  font-size: 1.8rem;
-  font-weight: 600;
-  text-align: center;
-  color: var(--secondary-color);
-  position: relative;
-}
-
-.portfolio__category__title::after {
-  content: '';
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 50px;
-  height: 3px;
-  background: var(--gradient-2);
-  border-radius: 3px;
-}
-
-.portfolio__links {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-top: 1.5rem;
-  padding: 0.5rem;
-}
-
-.portfolio__links a {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 1.2rem;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 30px;
-  color: var(--white);
-  font-size: 0.9rem;
-  transition: all 0.3s ease;
-}
-
-.portfolio__links a:hover {
-  background: var(--gradient-2);
-  transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-}
-
-.portfolio__links a i {
-  font-size: 1.2rem;
-}
-
-/* Enhanced download button */
-.btn i {
-  margin-right: 0.5rem;
-}
-
-/* Keep all existing CSS below */
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
-
-:root {
-  --primary-color: #e9615e;
-  --secondary-color: #ec9956;
-  --extra-light: #f3f4f6;
-  --white: #ffffff;
-  --gradient-1: linear-gradient(to bottom right, #62393c, #181e41);
-  --gradient-2: linear-gradient(to bottom,
-      var(--primary-color),
-      var(--secondary-color));
-  --max-width: 1200px;
+  .tab__btn {
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+  }
 }
