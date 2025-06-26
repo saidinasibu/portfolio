@@ -1,3 +1,4 @@
+// Same as your main.js, just renamed
 const navLinks = document.getElementById("nav-links");
 const menuBtn = document.getElementById("menu-btn");
 const menuBtnIcon = menuBtn.querySelector("i");
@@ -59,7 +60,7 @@ ScrollReveal().reveal(".service__card", {
   interval: 500,
 });
 
-// portfolio container
+// portfolio container - now includes new portfolio cards
 ScrollReveal().reveal(".portfolio__card", {
   duration: 1000,
   interval: 500,
