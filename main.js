@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Fonction pour changer d'onglet
   function switchTab(tabId) {
-    // Retirer la classe active de tous les boutons et contenus
+ 
     tabButtons.forEach(btn => btn.classList.remove('active'));
     tabContents.forEach(content => content.classList.remove('active'));
 
